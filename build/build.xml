@@ -5,6 +5,7 @@
 			<filelist>
 				<file name="${java.home}\..\lib\ant-javafx.jar"/>
 				<file name="${java.home}\lib\jfxrt.jar"/>
+				<file name="${basedir}"/>
 			</filelist>
 		</path>
 	
@@ -132,11 +133,13 @@
 		<fx:resources id="appRes">
 			<fx:fileset dir="dist" includes="VcfConverter.jar"/>
 			<fx:fileset dir="dist" includes="libs/*"/>
+			<fx:fileset dir="dist" includes="resources/**"/>
 		</fx:resources>
 	
 		<fx:application id="fxApplication"
 			name="VCF Converter"
 			mainClass="com.ngenebio.vcfconverter.Main"
+			version="0.1"
 			toolkit="fx"
 		/>
 	
@@ -152,7 +155,7 @@
 	
 			<manifest>
 				<attribute name="Implementation-Vendor" value="NGeneBio"/>
-				<attribute name="Implementation-Title" value="VCF Converter"/>
+				<attribute name="Implementation-Title" value="VCF Converter v0.1"/>
 				<attribute name="Implementation-Version" value="0.1"/>
 				<attribute name="JavaFX-Feature-Proxy" value="None"/>
 			</manifest>
@@ -167,7 +170,7 @@
 			includeDT="false"
 			offlineAllowed="true"
 			outdir="${basedir}/deploy"
-			outfile="VcfConverter" nativeBundles="exe"
+			outfile="VcfConverter" nativeBundles="all"
 			updatemode="background" >
 	
 			<fx:platform basedir="${java.home}"/>
